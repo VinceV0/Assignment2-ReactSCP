@@ -5,16 +5,20 @@ import AdminPanel from './AdminPanel'
 import Home from './Home'
 
 function App() {
+
   return (
-    <BrowserRouter basename="/Assignment2-ReactSCP">
+    <Router>
+      <NavMenu />
       <Routes>
+        <Route index element={<Home />} /> 
+        <Route path="/Assignment2-ReactSCP" element={<Home />} />
         <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/item/:id" element={<ItemDetail />} />
-        <Route path="/admin" element={<AdminPanel />} />
+        <Route path='/Home' element={<Home />} />
+        <Route path="/item/:id" element={<ItemDetail/>} />
+        <Route path="/admin" element={<AdminPanel/>}/>
       </Routes>
-    </BrowserRouter>
-  );
+    </Router>
+  )
 }
 
 export default App
