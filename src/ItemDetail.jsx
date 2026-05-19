@@ -27,6 +27,7 @@ export default function ItemDetail()
                     setItemData(data); // Update this component state with fetched data
                 }
             }
+            // Tells the app to start pulling the item's data from the database
             fetchItemDetails()
         }, [id]
     )
@@ -34,6 +35,9 @@ export default function ItemDetail()
     return(
         <div>
             {
+                // Asks: "Has the item's data finished downloading from the database yet?"
+                // If yes (itemData contains the data): It skips the loading text and displays the full page layout with the item's image, class, and description.
+                // If no (itemData is still empty/null): It shows the simple <p>Loading...</p> text on the screen while waiting for the network to finish.
                 itemData ? (
                     <>
                         <div style={{ backgroundColor: 'black', color: 'white', minHeight: '100vh', fontFamily: 'sans-serif'}}>

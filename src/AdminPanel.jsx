@@ -86,6 +86,7 @@ export default function AdminPanel()
                         <input value={newRecord.description} onChange={(e)=>setNewRecord({...newRecord, description: e.target.value})} placeholder="Description"/>
                         <input value={newRecord.image} onChange={(e)=>setNewRecord({...newRecord, image: e.target.value})} placeholder="Image Link"/>
                         <br></br>
+                        {/* Button that adds the record */}
                         <button onClick={addRecord}>Add Record</button>
                         
                         <h2 style={{color:'black'}}>Edit record</h2>
@@ -99,6 +100,7 @@ export default function AdminPanel()
                                                 // This line checks if an SCP subject is currently selected for editing by comparing its ID to the active loop item's ID
                                                 editRecord && editRecord.id == item.id ? 
                                                 // Edit Record form
+                                                // Input fields for editing a preexisting record
                                                 (<div className="edit">
                                                     <input value={editRecord.item} onChange={(e)=>setEditRecord({...editRecord, item: e.target.value})}  placeholder="Item" />
                                                     <input value={editRecord.class} onChange={(e)=>setEditRecord({...editRecord, class: e.target.value})}  placeholder="Class" />
@@ -106,10 +108,12 @@ export default function AdminPanel()
                                                     <input value={editRecord.description} onChange={(e)=>setEditRecord({...editRecord, description: e.target.value})}  placeholder="Description" />
                                                     <input value={editRecord.image} onChange={(e)=>setEditRecord({...editRecord, image: e.target.value})} placeholder="Image Link" />
                                                     <br></br>
+                                                    {/* Buttons to save the current edit, or cancel */}
                                                     <button onClick={()=>saveEdit(item.id)}>Save</button>
                                                     <button onClick={()=>setEditRecord(null)}>Cancel</button>
                                                 </div>) :
-                                                (<div className="edit">
+                                                // Display the record in read-only view mode with action buttons that allow the user to edit the record
+                                                (<div className="edit"> 
                                                     <h3 style={{fontSize: '3vw'}}>{item.item}</h3>
                                                     <button onClick={()=>startEditing(item)}>Edit</button>
                                                     <button onClick={()=>deleteRecord(item.id)}>Delete</button>

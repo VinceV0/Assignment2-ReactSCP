@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router" // Remember it's react-router without dom
+import { HashRouter as Router, Routes, Route } from "react-router";
 import NavMenu from './NavMenu'
 import ItemDetail from './ItemDetail'
 import AdminPanel from './AdminPanel'
