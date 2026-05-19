@@ -1,0 +1,415 @@
+/*Vince Vagay's Styling*/
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=League+Gothic&display=swap');
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+/*General flexbox that is the 'folder' part, tanned colour*/
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(246, 224, 187);
+    height: 100%;
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 5vw;
+    text-align: center;
+    margin-bottom: 0;
+    border-top-right-radius: 1.5vw;
+    filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.5));
+    position: relative;
+    z-index: 5;
+  }
+
+/*For the div inside the flexbox*/
+/*Has a paper background*/
+/*Text aligned left and given a font*/
+/*Having the wrong font helps me find missed styling*/
+.flexbox > div {
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    width: 89%;
+    height: 100%;
+    margin: 5%;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 100%;
+    border-radius: 5px 5px 0px 0px;
+    padding-left: 2%;
+    flex-wrap: wrap;
+    display: flow-root;
+    font-family: 'Rubik', sans-serif;
+    filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.5));
+    background-image: url('https://thumb.photo-ac.com/02/0202c8ed9bdb1bd81cb775146cce113a_t.jpeg');
+  }
+
+/*Used for the nav bar - trapezium*/
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_shapes_trapezoid*/
+
+
+/*This class was used for spacing and aligning*/
+/*My first itteration of making the tabs*/
+.trapezium {
+    width: 12vw; /* Increased slightly to fit the pseudo-element width */
+    height: 4vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2vw; /* Avoid negative margins unless overlapping */
+    text-decoration: none;
+    top: 1vw;
+}
+
+/* The actual "Tab" body */
+.trapezium::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Relative to parent .trapezium */
+    height: 100%;
+    background-color: rgb(246, 224, 187);
+    border-top-left-radius: 1.5vw;
+    border-top-right-radius: 1.5vw;
+    box-shadow: 0.5vw -0.1vw 0px rgba(0, 0, 0, 0.3), 0px 0px 0px rgb(246, 224, 187);
+    box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.4);
+    z-index: -1; /* Behind the text */
+}
+
+/* Text styling */
+.trapezium h3 {
+    font-size: 1.5vw;
+    color: rgb(0, 0, 0);
+    font-family: Cambria, Georgia, serif;
+    position: relative; /* Stacks it above the ::before pseudo-element */
+    z-index: 2; 
+    margin: 0;
+    margin-left: 1.5vw;
+    pointer-events: none; /* Allows clicks to pass through to the tab if needed */
+    text-decoration: none;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+}
+
+/* Ensure the Nav is above the folder content */
+nav {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Sections dedicated to dropdown menu */
+/* This covers the whole screen when the menu is open */
+.click-off-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 998; /* Below the menu, but above the SCP report */
+}
+
+/* Backdrop */
+#menu-toggle:checked ~ .click-off-backdrop {
+    display: block;
+}
+
+/* The SCP Subjects */
+.popup-menu {
+    display: none;
+    flex-direction: column; /* Force vertical stacking */
+    position: absolute;
+    top: 5vw;
+    left: 75vw;
+    z-index: 999; /* Highest layer */
+    margin: 0;
+}
+
+/* Show menu when checked */
+#menu-toggle:checked ~ .popup-menu {
+    display: flex;
+}
+
+/* Click to close the links */
+.popup-menu div {
+    position: relative;
+}
+
+/* Clicking a label unchecks the checkbox */
+#menu-toggle:checked ~ .popup-menu a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1001;
+}
+/* Styling the links within the menu */
+.popup-menu .trapezium {
+    margin-left: 0vw;
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-left: 0;
+    margin-top: -0.2vw;
+    width: 12vw;
+}
+
+.scplabel{
+    margin-left: 75vw;
+    top: 5vw;
+}
+
+
+
+/* For the 'home' tab */
+.home{
+    margin-bottom: -6vw;
+    top: 2vw;
+}
+/* For the text in 'home' tab */
+.home h3{
+    margin-left: -1vw;
+    top: -0.2vw;
+}
+
+/* For the 'admin panel' tab */
+.admin{
+    margin-bottom: -6vw;
+    top: 4vw;
+    margin-left: 59vw;
+}
+/* For the text in 'admin panel' tab */
+.admin h3{
+    margin-left: 0vw;
+    top: -0.2vw;
+}
+
+/*Formatting of text, size and font with positioning*/
+h1{
+    font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+    font-size: 4vw;
+    margin-left: 1vw;
+    margin-top: 7vw;
+    color: firebrick;
+}
+
+/*The bold text will be black*/
+h1 > b{
+    color: black;
+}
+
+h2{
+    font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+    font-size: 2.5vw;
+    margin-left: 1vw;
+    color: firebrick;
+}
+
+/*The bold text will be black*/
+h2 > b{
+    color: black;
+}
+
+h3{
+    font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+    font-size: 2vw;
+    margin-left: 1vw;
+    color:black;
+}
+
+h4{
+    font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+}
+
+h5{
+    font-size: 10vw ;
+    font-family: "Anton", sans-serif;
+    color: #b22222;
+}
+
+p{
+    font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+    margin-right: 6vw;
+    color: black;
+}
+
+/*Formatting of image class*/
+.image{
+    width: 30vw;
+    float: right;
+    padding-right: 6vw;
+    padding-left: 2vw;
+}
+
+/*Formatting for an ordered list*/
+ol{
+    font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5vw;
+    margin-right: 6vw;
+    margin-left: 5vw;
+}
+
+/*Formatting footer*/
+footer{
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5vw;
+    padding-left: 5vw;
+}
+
+button{
+    margin-left: 1vw;
+    align-items: center;
+    background-color: firebrick;
+    border-radius: 1vw;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-sizing: border-box;
+    height: 4vw;
+    width: 13vw;
+    z-index: 0;
+    margin-bottom: 5vw;
+    font-size: 2vw;
+    color: white;
+}
+
+/*Hovering over the button*/
+button:hover{
+    background-color: #9a1c1c; /*Darker Firebrick*/
+}
+button a:hover{
+        color: rgb(180, 180, 180);
+}
+
+input{
+    font-size: 2.5vw;
+    font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    padding-bottom: 3vw;
+    border-radius: 1vw;
+    margin-left: 1vw;
+    margin-bottom: 2vw;
+}
+
+.edit{
+    margin-left: -2vw;
+}
+
+.image {
+    /* This color only appears if the image fails to load */
+    color: #b22222; 
+    font-style: italic;
+    font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+    font-size: 5vw;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* For medium sized screen */
+@media (max-width: 1000px){
+    .scplabel h3{
+    left:-0.5vw
+    }
+}
+
+/* For phone viewing, change the font sizes */
+@media (max-width: 768px){
+    .flexbox{
+        margin-top: 0vw;
+    }
+    /*Formatting of text, size and font with positioning*/
+    h1{
+        font-size: 5vw;
+    }
+
+    h2{
+        font-size: 3.5vw;
+    }
+    
+    h3{
+        font-size: 3vw;
+    }
+
+    h4{
+        font-size: 1.5vw;
+        margin-left: 1vw;
+    }
+
+    p{
+        font-size: 2.5vw;
+    }
+    /* Trapezium sizing */
+    .trapezium {
+        width: 21vw; /* Increased slightly to fit the label */
+        height: 7vw;
+    }
+    .trapezium::before {
+        bottom: 0;
+    }
+    .trapezium h3{
+        font-size: 2.5vw;
+        padding-top: 2vw;
+        padding-left: 1vw;
+    }
+    .popup-menu {
+        margin-top: 2vw;
+        margin-left: -5vw;
+    }
+    /* Popup menu trapezium sizing */
+    .popup-menu .trapezium {
+        width: 21vw;
+    }
+    .scplabel{
+        margin-left: 70vw;
+        top: 0vw; /**/
+    }
+    /* Footer */
+    footer{
+        font-size: 2vw;
+    }
+    /* For the home tab */
+    .home{
+        margin-bottom: -8vw;
+        top: 1vw
+    }
+    .home h3{
+        padding-bottom: 2vw;
+        top: 0vw;
+    }
+
+        /* For the 'admin panel' tab */
+    .admin{
+        margin-bottom: -6vw;
+        top: 2vw;
+        margin-left: 45vw;
+    }
+    /* For the text in 'admin panel' tab */
+    .admin h3{
+        margin-left: 0vw;
+        top: -0.6vw;
+    }
+
+    button{
+        font-size: 2vw;
+        width: 15vw;
+        height: 5vw;
+    }
+
+    .edit{
+        margin-left: -2.5em;
+    }
+}
