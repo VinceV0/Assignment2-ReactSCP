@@ -254,6 +254,13 @@ p{
     padding-left: 2vw;
 }
 
+.image-admin{
+    width: 30vw;
+    float: centre;
+    padding-right: 6vw;
+    padding-left: 6vw;
+}
+
 /*Formatting for an ordered list*/
 ol{
     font-family: "Rockwell", "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;

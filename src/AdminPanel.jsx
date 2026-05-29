@@ -114,6 +114,7 @@ export default function AdminPanel()
                                                 </div>) :
                                                 // Display the record in read-only view mode with action buttons that allow the user to edit the record
                                                 (<div className="edit"> 
+                                                    <img className='image-admin' src={item.image} alt={item.item}></img>
                                                     <h3 style={{fontSize: '3vw'}}>{item.item}</h3>
                                                     <button onClick={()=>startEditing(item)}>Edit</button>
                                                     <button onClick={()=>deleteRecord(item.id)}>Delete</button>
