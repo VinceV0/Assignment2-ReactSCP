@@ -254,6 +254,7 @@ p{
     padding-left: 2vw;
 }
 
+/* For images in the admin panel */
 .image-admin{
     width: 30vw;
     float: centre;
